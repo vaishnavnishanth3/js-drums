@@ -57,4 +57,4 @@ for (var i=0;i<(document.querySelectorAll(".drum").length);i++)
     document.querySelectorAll(".drum")[i].addEventListener("click",handleClick);
 }
 
-document.addEventListener("keypress",handleKeypress);
+document.addEventListener("keydown",handleKeypress);
