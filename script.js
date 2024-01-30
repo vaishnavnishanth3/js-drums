@@ -1,11 +1,20 @@
 function handleClick() {
     var buttonInnerHTML = this.innerHTML;
     actionDone(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
 }
-
 
 function handleKeypress() {
     actionDone(event.key);
+    buttonAnimation(event.key);
+}
+
+function buttonAnimation(currentkey) {
+    var activeButton = document.querySelector("."+currentkey);
+    activeButton.classList.add("pressed");
+    setTimeout(function() {
+        activeButton.classList.remove("pressed");
+    },20);
 }
 
 function actionDone(action) {
@@ -57,4 +66,4 @@ for (var i=0;i<(document.querySelectorAll(".drum").length);i++)
     document.querySelectorAll(".drum")[i].addEventListener("click",handleClick);
 }
 
-document.addEventListener("keydown",handleKeypress);
+document.addEventListener("keypress",handleKeypress);
