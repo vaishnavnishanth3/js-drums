@@ -1,8 +1,15 @@
 function handleClick() {
-    
     var buttonInnerHTML = this.innerHTML;
+    actionDone(buttonInnerHTML);
+}
 
-    switch(buttonInnerHTML) 
+
+function handleKeypress() {
+    actionDone(event.key);
+}
+
+function actionDone(action) {
+    switch(action) 
     {
         case "w":
             var tom1 = new Audio('./sounds/tom-1.mp3');
@@ -41,10 +48,13 @@ function handleClick() {
 
         default:
             break;
-    }    
+    }     
+
 }
 
 for (var i=0;i<(document.querySelectorAll(".drum").length);i++)
 {
     document.querySelectorAll(".drum")[i].addEventListener("click",handleClick);
 }
+
+document.addEventListener("keypress",handleKeypress);
